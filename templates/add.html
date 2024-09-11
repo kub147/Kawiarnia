@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Cafe Form 2.0</h1>
+
+      <!-- Automatic Search Form -->
+      <h2>Search for a Cafe</h2>
+      <p>Enter the name of the cafe, and the system will automatically search for information like ratings, prices, and more from Google Maps.</p>
+      {{ render_form(form_auto) }}
+
+      <hr class="my-4">
+
+      <!-- Manual Entry Form -->
+      <h2>Add a new cafe into the database</h2>
+      <p>After retrieving data, review and complete any missing information before submitting the cafe details to the database.</p>
+      {{ render_form(form) }}
+
+      <div class="mt-5">
+        <a class="btn btn-warning btn-lg" href="{{ url_for('home') }}" role="button">Return to index page</a>
+        <a class="btn btn-warning btn-lg mt-3" href="{{ url_for('cafes') }}" role="button">See all cafes</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
